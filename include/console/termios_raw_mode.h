@@ -3,6 +3,7 @@
 
 #include <termios.h>
 
+namespace emsh {
 namespace console {
 
 class TermiosRawMode {
@@ -20,5 +21,6 @@ private:
 };
 
 } // namespace console
+} // namespace emsh
 
 #endif // EMSH_TERMIOS_RAW_MODE_H

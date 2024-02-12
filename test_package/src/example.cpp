@@ -3,6 +3,8 @@
 
 #include "emsh/emsh.h"
 
+using namespace emsh;
+
 int main() {
     console::TermiosRawMode rawMode;
     char c = 0;

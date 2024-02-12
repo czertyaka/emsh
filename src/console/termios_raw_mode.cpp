@@ -6,6 +6,7 @@
 
 #include <unistd.h>
 
+namespace emsh {
 namespace console {
 
 TermiosRawMode::TermiosRawMode() : applied_(false) {
@@ -45,3 +46,4 @@ void TermiosRawMode::set_termios(const termios &_termios) {
 }
 
 } // namespace console
+} // namespace emsh
