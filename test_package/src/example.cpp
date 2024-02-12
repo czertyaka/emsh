@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cctype>
+#include <iostream>
 
 #include "emsh/emsh.h"
 
