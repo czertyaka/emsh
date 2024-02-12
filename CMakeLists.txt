@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.25)
 
 project(emsh CXX)
 
+option(BUILD_TESTS OFF)
+
 add_library(emsh)
 target_sources(
     emsh PRIVATE
@@ -25,3 +27,7 @@ install(
     FILE_SET HEADERS
         DESTINATION "include/emsh"
 )
+
+if (BUILD_TESTS)
+    add_subdirectory("${CMAKE_SOURCE_DIR}/unit_tests")
+endif()
