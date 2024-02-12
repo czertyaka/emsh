@@ -2,6 +2,6 @@
 
 # emsh
 
-C++ library for embedding shell-like CLI in your projects mainly for interaction with user.
+C++ library for embedding shell-like CLI in your projects mainly for user interaction.
 
 Under 🚧 development 🛠️ currently.
