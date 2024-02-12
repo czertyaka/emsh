@@ -15,15 +15,15 @@ Input& Input::operator=(const Input& other) {
     return *this;
 }
 
-bool Input::SetText(const std::string& text) { return false; }
-
 bool Input::SetText(const char* text) { return false; }
 
-bool Input::InsertText(char c) { return false; }
+bool Input::SetText(const std::string& text) { return false; }
 
-bool Input::InsertText(const char* text) { return false; }
+bool Input::InsertChars(const char c) { return false; }
 
-bool Input::InsertText(const std::string& text) { return false; }
+bool Input::InsertChars(const char* chars) { return false; }
+
+bool Input::InsertChars(const std::string& chars) { return false; }
 
 bool Input::MoveCursor(const int shift) { return false; }
 
