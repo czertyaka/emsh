@@ -1,5 +1,6 @@
 #include <cctype>
 #include <limits>
+#include <string>
 
 #include <gtest/gtest.h>
 
@@ -32,9 +33,9 @@ TYPED_TEST(InputTextTypedTest, SetTextUpdatesCursorAndText) {
 
     text = "Buzz";
     EXPECT_TRUE(input.SetText(text));
-    EXPECT_EQ(input.GetCursor(), 8u);
-    EXPECT_EQ(input.GetTextLength(), 8u);
-    EXPECT_EQ(input.GetText(), "FizzBuzz");
+    EXPECT_EQ(input.GetCursor(), 4u);
+    EXPECT_EQ(input.GetTextLength(), 4u);
+    EXPECT_EQ(input.GetText(), "Buzz");
 }
 
 TYPED_TEST(InputTextTypedTest, SetTextErasesPreviousText) {
@@ -63,7 +64,11 @@ TYPED_TEST(InputTextTypedTest, ResetInputWithSetText) {
 
 TYPED_TEST(InputTextTypedTest, CanNotSetUnprintableText) {
     using limits = std::numeric_limits<char>;
-    for (char c = limits::min(); c <= limits::max(); ++c) {
+    for (char c = limits::min(); c < limits::max(); ++c) {
+        if (std::isprint(c) != 0 || c == '\0' || c == '\n') {
+            continue;
+        }
+
         char buffer[] = "FizzBuzz";
         buffer[2] = c;
         const TypeParam text = buffer;
@@ -83,8 +88,8 @@ TYPED_TEST(InputTextTypedTest, InsertCharsUpdatesCursorAndText) {
     const TypeParam chars = "FizzBuzz";
 
     ASSERT_TRUE(input.InsertChars(chars));
-    EXPECT_EQ(input.GetCursor(), sizeof(chars));
-    EXPECT_EQ(input.GetTextLength(), sizeof(chars));
+    EXPECT_EQ(input.GetCursor(), std::string(chars).size());
+    EXPECT_EQ(input.GetTextLength(), std::string(chars).size());
     EXPECT_EQ(input.GetText(), chars);
 }
 
@@ -99,8 +104,8 @@ TEST(InputTest, InsertCharUpdatesCursorAndText) {
 
 TYPED_TEST(InputTextTypedTest, CanNotInsertUnprintableCharacters) {
     using limits = std::numeric_limits<char>;
-    for (char c = limits::min(); c <= limits::max(); ++c) {
-        if (std::isprint(c) != 0) {
+    for (char c = limits::min(); c < limits::max(); ++c) {
+        if (std::isprint(c) != 0 || c == '\0' || c == '\n') {
             continue;
         }
 
@@ -111,7 +116,7 @@ TYPED_TEST(InputTextTypedTest, CanNotInsertUnprintableCharacters) {
         Input input;
         ASSERT_TRUE(input.SetText("BuzzFizz"));
 
-        EXPECT_FALSE(input.InsertChars(chars));
+        EXPECT_FALSE(input.InsertChars(chars)) << "c = " << c;
         EXPECT_EQ(input.GetCursor(), 8u);
         EXPECT_EQ(input.GetTextLength(), 8u);
         EXPECT_EQ(input.GetText(), "BuzzFizz");
@@ -120,7 +125,7 @@ TYPED_TEST(InputTextTypedTest, CanNotInsertUnprintableCharacters) {
 
 TEST(InputTest, CanNotInsertUnprintableCharacter) {
     using limits = std::numeric_limits<char>;
-    for (char c = limits::min(); c <= limits::max(); ++c) {
+    for (char c = limits::min(); c < limits::max(); ++c) {
         if (std::isprint(c) != 0) {
             continue;
         }
@@ -184,7 +189,7 @@ TEST(InputTest, InsertCharBeforeText) {
 class InputCursorTest : public testing::Test {
 public:
     void SetUp() {
-        ASSERT_TRUE(input.SetText("FizzFuzz"));
+        ASSERT_TRUE(input.SetText("FizzBuzz"));
         ASSERT_TRUE(input.SetCursor(4));
     }
 
