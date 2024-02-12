@@ -1,5 +1,5 @@
-#ifndef TERMIOS_RAW_MODE_H
-#define TERMIOS_RAW_MODE_H
+#ifndef EMSH_TERMIOS_RAW_MODE_H
+#define EMSH_TERMIOS_RAW_MODE_H
 
 #include <termios.h>
 
@@ -19,4 +19,4 @@ private:
 
 } // console
 
-#endif // TERMIOS_RAW_MODE_H
+#endif // EMSH_TERMIOS_RAW_MODE_H
