@@ -30,6 +30,9 @@ public:
     const std::string& GetText() const;
 
 private:
+    static bool text_printable(const std::string& text);
+
+private:
     std::string text_;
     std::size_t cursor_;
 };
