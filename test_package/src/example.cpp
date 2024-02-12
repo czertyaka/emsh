@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cctype>
 
-#include "emsh.h"
+#include "emsh/emsh.h"
 
 int main() {
     console::TermiosRawMode rawMode;
