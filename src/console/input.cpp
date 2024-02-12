@@ -15,11 +15,15 @@ Input& Input::operator=(const Input& other) {
     return *this;
 }
 
-bool Input::Add(char c) { return false; }
+bool Input::SetText(const std::string& text) { return false; }
 
-bool Input::Add(const char* text) { return false; }
+bool Input::SetText(const char* text) { return false; }
 
-bool Input::Add(const std::string& text) { return false; }
+bool Input::InsertText(char c) { return false; }
+
+bool Input::InsertText(const char* text) { return false; }
+
+bool Input::InsertText(const std::string& text) { return false; }
 
 bool Input::MoveCursor(const int shift) { return false; }
 
@@ -28,10 +32,6 @@ bool Input::MoveCursorLeft() { return false; }
 bool Input::MoveCursorRight() { return false; }
 
 bool Input::SetCursor(const std::size_t pos) { return false; }
-
-bool Input::SetText(const std::string& text) { return false; }
-
-bool Input::SetText(const char* text) { return false; }
 
 std::size_t Input::GetCursor() const { return cursor_; }
 

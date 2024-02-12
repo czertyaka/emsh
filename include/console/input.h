@@ -13,17 +13,17 @@ public:
     Input(const Input& other);
     Input& operator=(const Input& other);
 
-    bool Add(char c);
-    bool Add(const char* text);
-    bool Add(const std::string& text);
+    bool SetText(const std::string& text);
+    bool SetText(const char* text);
+
+    bool InsertText(char c);
+    bool InsertText(const char* text);
+    bool InsertText(const std::string& text);
 
     bool MoveCursor(const int shift);
     bool MoveCursorLeft();
     bool MoveCursorRight();
     bool SetCursor(const std::size_t pos);
-
-    bool SetText(const std::string& text);
-    bool SetText(const char* text);
 
     std::size_t GetCursor() const;
     std::size_t GetTextLength() const;
