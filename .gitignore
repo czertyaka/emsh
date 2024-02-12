@@ -1,2 +1,3 @@
 **/build
 **/CMakeUserPresets.json
+.ycm_extra_conf.py
