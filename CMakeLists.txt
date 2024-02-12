@@ -2,7 +2,14 @@ cmake_minimum_required(VERSION 3.25)
 
 project(emsh CXX)
 
-add_library(emsh)
+option(BUILD_SHARED OFF)
+
+if (BUILD_SHARED)
+    add_library(emsh SHARED)
+else()
+    add_library(emsh STATIC)
+endif()
+
 target_sources(
     emsh PRIVATE
         "${CMAKE_SOURCE_DIR}/src/console/input.cpp"

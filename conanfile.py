@@ -22,6 +22,8 @@ class EmshRecipe(ConanFile):
 
     def generate(self):
         tc = CMakeToolchain(self)
+        if self.options.shared:
+            tc.cache_variables["BUILD_SHARED"] = True
         tc.generate()
 
     def build(self):
