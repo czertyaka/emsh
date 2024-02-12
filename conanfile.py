@@ -8,10 +8,17 @@ class EmshRecipe(ConanFile):
     version = "1.0"
 
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False], "fPIC": [True, False]}
-    default_options = {"shared": False, "fPIC": True}
+    options = {
+        "shared": [True, False],
+        "fPIC": [True, False],
+        "with_unit_tests": [True, False],
+    }
+    default_options = {"shared": False, "fPIC": True, "with_unit_tests": False}
 
     exports_sources = "CMakeLists.txt", "src/*", "include/*"
+
+    def requirements(self):
+        self.requires("gtest/1.14.0")
 
     def validate(self):
         if self.settings.os == "Windows":
@@ -22,6 +29,8 @@ class EmshRecipe(ConanFile):
 
     def generate(self):
         tc = CMakeToolchain(self)
+        if self.options.with_unit_tests:
+            tc.cache_variables["BUILD_TESTS"] = True
         tc.generate()
 
     def build(self):
