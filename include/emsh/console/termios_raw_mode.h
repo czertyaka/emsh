@@ -12,8 +12,8 @@ public:
     ~TermiosRawMode();
 
 private:
-    static void get_current_termios(termios &_termios);
-    static void set_termios(const termios &_termios);
+    static void get_current_termios(termios& _termios);
+    static void set_termios(const termios& _termios);
 
 private:
     termios prev_;

@@ -27,19 +27,19 @@ TermiosRawMode::~TermiosRawMode() {
             set_termios(prev_);
         }
     }
-    catch (const std::exception &err) {
+    catch (const std::exception& err) {
     }
 }
 
 // static
-void TermiosRawMode::get_current_termios(termios &_termios) {
+void TermiosRawMode::get_current_termios(termios& _termios) {
     if (tcgetattr(STDIN_FILENO, &_termios) != 0) {
         throw std::runtime_error(std::strerror(errno));
     }
 }
 
 // static
-void TermiosRawMode::set_termios(const termios &_termios) {
+void TermiosRawMode::set_termios(const termios& _termios) {
     if (tcsetattr(STDERR_FILENO, TCSAFLUSH, &_termios) != 0) {
         throw std::runtime_error(std::strerror(errno));
     }
