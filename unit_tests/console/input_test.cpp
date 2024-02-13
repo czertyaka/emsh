@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 
-#include "console/input.h"
+#include "emsh/console/input.h"
 
 using emsh::console::Input;
 

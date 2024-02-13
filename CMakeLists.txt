@@ -16,19 +16,14 @@ target_sources(
     emsh PUBLIC
         FILE_SET HEADERS BASE_DIRS "${CMAKE_SOURCE_DIR}/include"
         FILES
-            "include/console/console.h"
-            "include/console/input.h"
-            "include/console/prompt.h"
-            "include/console/termios_raw_mode.h"
-            "include/emsh.h"
+            "include/emsh/console/console.h"
+            "include/emsh/console/input.h"
+            "include/emsh/console/prompt.h"
+            "include/emsh/console/termios_raw_mode.h"
+            "include/emsh/emsh.h"
 )
 
-install(
-    TARGETS
-        emsh
-    FILE_SET HEADERS
-        DESTINATION "include/emsh"
-)
+install(TARGETS emsh FILE_SET HEADERS)
 
 if (BUILD_TESTS)
     add_subdirectory("${CMAKE_SOURCE_DIR}/unit_tests")

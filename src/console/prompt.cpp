@@ -1,4 +1,4 @@
-#include <console/prompt.h>
+#include "emsh/console/prompt.h"
 
 namespace emsh {
 namespace console {

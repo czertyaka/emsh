@@ -2,7 +2,7 @@
 #include <cstring>
 #include <exception>
 
-#include "console/input.h"
+#include "emsh/console/input.h"
 
 namespace emsh {
 namespace console {

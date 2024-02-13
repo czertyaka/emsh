@@ -1,9 +1,9 @@
 #ifndef EMSH_CONSOLE_H
 #define EMSH_CONSOLE_H
 
-#include "console/input.h"
-#include "console/prompt.h"
-#include "console/termios_raw_mode.h"
+#include "emsh/console/input.h"
+#include "emsh/console/prompt.h"
+#include "emsh/console/termios_raw_mode.h"
 
 namespace emsh {
 namespace console {
