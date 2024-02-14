@@ -20,7 +20,7 @@ bool Mask::Apply(tcflag_t& flags) {
     const tcflag_t prev = flags;
     flags |= or_;
     flags &= and_;
-    return flags == prev;
+    return flags != prev;
 }
 
 } // namespace termios_wrap
