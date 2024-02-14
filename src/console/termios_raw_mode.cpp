@@ -12,7 +12,7 @@ namespace console {
 TermiosRawMode::TermiosRawMode() : applied_(false) {
     termios raw;
     get_current_termios(raw);
-    const tcflag_t mask = ICANON | ISIG | ECHO;
+    const tcflag_t mask = ICANON | ECHO;
     if ((raw.c_lflag & mask) > 0) {
         std::memcpy(&prev_, &raw, sizeof(prev_));
         raw.c_lflag &= ~mask;
