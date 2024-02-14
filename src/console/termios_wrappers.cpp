@@ -23,6 +23,8 @@ bool Mask::Apply(tcflag_t& flags) {
     return flags != prev;
 }
 
+MasksSet::MasksSet() {}
+
 } // namespace termios_wrap
 } // namespace console
 } // namespace emsh
