@@ -17,6 +17,20 @@ TEST(InputTest, DefaultInputIsEmpty) {
     EXPECT_EQ(input.GetText(), "");
 }
 
+TEST(InputTest, ClearUpdatesCursorAndText) {
+    Input input;
+
+    ASSERT_TRUE(input.SetText("FizzBuzz"));
+    ASSERT_EQ(input.GetCursor(), 8u);
+    ASSERT_EQ(input.GetTextLength(), 8u);
+    ASSERT_EQ(input.GetText(), "FizzBuzz");
+
+    input.Clear();
+    EXPECT_EQ(input.GetCursor(), 0u);
+    EXPECT_EQ(input.GetTextLength(), 0u);
+    EXPECT_EQ(input.GetText(), "");
+}
+
 template <typename T> class InputTextTypedTest : public testing::Test {};
 
 using TextTypes = testing::Types<const char*, std::string>;

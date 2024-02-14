@@ -19,6 +19,11 @@ Input& Input::operator=(const Input& other) {
     return *this;
 }
 
+void Input::Clear() {
+    text_.clear();
+    cursor_ = 0;
+}
+
 bool Input::SetText(const char* text) {
     if (!text_printable(text)) {
         return false;
