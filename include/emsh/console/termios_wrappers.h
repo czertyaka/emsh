@@ -22,8 +22,8 @@ private:
 struct MasksSet {
     MasksSet();
 
-    static MasksSet enable_raw_mode();
-    static MasksSet disable_echo();
+    static const MasksSet& enable_raw_mode();
+    static const MasksSet& disable_echo();
 
     Mask inputMask;   // applies to c_iflag
     Mask outputMask;  // applies to c_oflag

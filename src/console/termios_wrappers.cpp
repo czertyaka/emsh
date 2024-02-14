@@ -25,6 +25,29 @@ bool Mask::Apply(tcflag_t& flags) {
 
 MasksSet::MasksSet() {}
 
+// static
+const MasksSet& MasksSet::enable_raw_mode() {
+    static MasksSet set;
+    static bool init = false;
+    if (!init) {
+        set.localMask.RemoveFlag(ICANON);
+        set.localMask.RemoveFlag(ECHO);
+        init = true;
+    }
+    return set;
+}
+
+// static
+const MasksSet& disable_echo() {
+    static MasksSet set;
+    static bool init = false;
+    if (!init) {
+        set.localMask.RemoveFlag(ECHO);
+        init = true;
+    }
+    return set;
+}
+
 } // namespace termios_wrap
 } // namespace console
 } // namespace emsh
