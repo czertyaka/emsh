@@ -12,7 +12,7 @@ public:
     Mask();
     void AddFlag(const tcflag_t flag);
     void RemoveFlag(const tcflag_t flag);
-    bool Apply(tcflag_t& flags);
+    bool Apply(tcflag_t& flags) const;
 
 private:
     tcflag_t or_;
