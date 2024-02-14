@@ -1,12 +1,13 @@
 #include <cctype>
 #include <iostream>
 
-#include "emsh/emsh.h"
+#include "emsh/console/termios_wrappers.h"
 
 using namespace emsh;
 
 int main() {
-    console::TermiosRawMode rawMode;
+    using namespace console::termios_wrap;
+    StdinFlagsSetter rawMode(MasksSet::enable_raw_mode());
     char c = 0;
     bool escape_sequence = false;
     while (c != '\n') {
