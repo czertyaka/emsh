@@ -3,7 +3,7 @@
 namespace emsh {
 namespace console {
 
-Prompt::Prompt() : text_("emsh > ") {}
+Prompt::Prompt() {}
 
 // explicit
 Prompt::Prompt(const std::string& text) : text_(text) {}
