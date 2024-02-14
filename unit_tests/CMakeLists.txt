@@ -19,3 +19,9 @@ emsh_add_tests(
     SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/console/input_test.cpp"
     PREFIX "Console"
 )
+
+emsh_add_tests(
+    TARGET console_prompt_test
+    SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/console/prompt_test.cpp"
+    PREFIX "Console"
+)
