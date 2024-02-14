@@ -10,7 +10,7 @@ target_sources(
         "${CMAKE_SOURCE_DIR}/src/console/console.cpp"
         "${CMAKE_SOURCE_DIR}/src/console/input.cpp"
         "${CMAKE_SOURCE_DIR}/src/console/prompt.cpp"
-        "${CMAKE_SOURCE_DIR}/src/console/termios_raw_mode.cpp"
+        "${CMAKE_SOURCE_DIR}/src/console/termios_wrappers.cpp"
 )
 target_sources(
     emsh PUBLIC
@@ -19,7 +19,7 @@ target_sources(
             "include/emsh/console/console.h"
             "include/emsh/console/input.h"
             "include/emsh/console/prompt.h"
-            "include/emsh/console/termios_raw_mode.h"
+            "include/emsh/console/termios_wrappers.h"
             "include/emsh/emsh.h"
 )
 

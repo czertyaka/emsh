@@ -3,7 +3,6 @@
 
 #include "emsh/console/input.h"
 #include "emsh/console/prompt.h"
-#include "emsh/console/termios_raw_mode.h"
 
 namespace emsh {
 namespace console {
@@ -25,7 +24,6 @@ public:
     ControlSequence ReadInput();
 
 private:
-    TermiosRawMode termiosRawMode_;
     Input input_;
     Prompt prompt_;
 };
