@@ -17,7 +17,9 @@ Prompt& Prompt::operator=(const Prompt& other) {
     return *this;
 }
 
-const std::string& Prompt::Text() const { return text_; }
+const std::string& Prompt::Text() const {
+    return text_;
+}
 
 } // namespace console
 } // namespace emsh

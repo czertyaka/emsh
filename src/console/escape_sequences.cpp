@@ -45,13 +45,21 @@ std::string move_cursor(const Direction direction, const std::size_t times) {
 
 } // namespace
 
-std::string cursor_up(const std::size_t times) { return move_cursor(UP, times); }
+std::string cursor_up(const std::size_t times) {
+    return move_cursor(UP, times);
+}
 
-std::string cursor_down(const std::size_t times) { return move_cursor(DOWN, times); }
+std::string cursor_down(const std::size_t times) {
+    return move_cursor(DOWN, times);
+}
 
-std::string cursor_right(const std::size_t times) { return move_cursor(RIGHT, times); }
+std::string cursor_right(const std::size_t times) {
+    return move_cursor(RIGHT, times);
+}
 
-std::string cursor_left(const std::size_t times) { return move_cursor(LEFT, times); }
+std::string cursor_left(const std::size_t times) {
+    return move_cursor(LEFT, times);
+}
 
 const std::string home = ESC "[1~";
 const std::string end = ESC "[F";

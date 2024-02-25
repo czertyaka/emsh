@@ -117,11 +117,17 @@ bool Input::SetCursor(const std::size_t pos) {
     return true;
 }
 
-std::size_t Input::GetCursor() const { return cursor_; }
+std::size_t Input::GetCursor() const {
+    return cursor_;
+}
 
-std::size_t Input::GetTextLength() const { return text_.size(); }
+std::size_t Input::GetTextLength() const {
+    return text_.size();
+}
 
-const std::string& Input::GetText() const { return text_; }
+const std::string& Input::GetText() const {
+    return text_;
+}
 
 bool Input::text_printable(const std::string& text) {
     for (std::string::const_iterator it = text.begin(); it != text.end(); ++it) {
