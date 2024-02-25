@@ -8,6 +8,8 @@ function(emsh_add_tests)
     cmake_parse_arguments(EMSH_TEST "" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
     add_executable("${EMSH_TEST_TARGET}" "${EMSH_TEST_SOURCES}")
     target_link_libraries("${EMSH_TEST_TARGET}" PRIVATE emsh GTest::gtest GTest::gtest_main)
+    target_compile_options("${EMSH_TEST_TARGET}" PRIVATE -fsanitize=address,undefined)
+    target_link_options("${EMSH_TEST_TARGET}" PRIVATE -fsanitize=address,undefined)
     gtest_discover_tests(
         "${EMSH_TEST_TARGET}"
         TEST_PREFIX "${EMSH_TEST_PREFIX}."
