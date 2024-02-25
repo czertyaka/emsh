@@ -1,9 +1,9 @@
-#include <console/prompt.h>
+#include "emsh/console/prompt.h"
 
 namespace emsh {
 namespace console {
 
-Prompt::Prompt() : text_("emsh > ") {}
+Prompt::Prompt() {}
 
 // explicit
 Prompt::Prompt(const std::string& text) : text_(text) {}
@@ -17,7 +17,9 @@ Prompt& Prompt::operator=(const Prompt& other) {
     return *this;
 }
 
-const std::string& Prompt::Text() const { return text_; }
+const std::string& Prompt::Text() const {
+    return text_;
+}
 
 } // namespace console
 } // namespace emsh

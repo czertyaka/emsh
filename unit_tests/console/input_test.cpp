@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 
-#include "console/input.h"
+#include "emsh/console/input.h"
 
 using emsh::console::Input;
 
@@ -12,6 +12,20 @@ namespace {
 
 TEST(InputTest, DefaultInputIsEmpty) {
     Input input;
+    EXPECT_EQ(input.GetCursor(), 0u);
+    EXPECT_EQ(input.GetTextLength(), 0u);
+    EXPECT_EQ(input.GetText(), "");
+}
+
+TEST(InputTest, ClearUpdatesCursorAndText) {
+    Input input;
+
+    ASSERT_TRUE(input.SetText("FizzBuzz"));
+    ASSERT_EQ(input.GetCursor(), 8u);
+    ASSERT_EQ(input.GetTextLength(), 8u);
+    ASSERT_EQ(input.GetText(), "FizzBuzz");
+
+    input.Clear();
     EXPECT_EQ(input.GetCursor(), 0u);
     EXPECT_EQ(input.GetTextLength(), 0u);
     EXPECT_EQ(input.GetText(), "");

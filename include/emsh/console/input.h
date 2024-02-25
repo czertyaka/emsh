@@ -13,6 +13,8 @@ public:
     Input(const Input& other);
     Input& operator=(const Input& other);
 
+    void Clear();
+
     bool SetText(const char* text);
     bool SetText(const std::string& text);
 

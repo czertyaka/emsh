@@ -2,7 +2,7 @@
 #include <cstring>
 #include <exception>
 
-#include "console/input.h"
+#include "emsh/console/input.h"
 
 namespace emsh {
 namespace console {
@@ -17,6 +17,11 @@ Input& Input::operator=(const Input& other) {
         cursor_ = other.cursor_;
     }
     return *this;
+}
+
+void Input::Clear() {
+    text_.clear();
+    cursor_ = 0;
 }
 
 bool Input::SetText(const char* text) {
@@ -81,7 +86,7 @@ bool Input::InsertChars(const std::string& chars) {
 
 bool Input::MoveCursor(const int shift) {
     const int pos = static_cast<int>(cursor_) + shift;
-    if (pos < 0 || pos > text_.size()) {
+    if (pos < 0 || static_cast<std::size_t>(pos) > text_.size()) {
         return false;
     }
     cursor_ = static_cast<std::size_t>(pos);
@@ -112,11 +117,17 @@ bool Input::SetCursor(const std::size_t pos) {
     return true;
 }
 
-std::size_t Input::GetCursor() const { return cursor_; }
+std::size_t Input::GetCursor() const {
+    return cursor_;
+}
 
-std::size_t Input::GetTextLength() const { return text_.size(); }
+std::size_t Input::GetTextLength() const {
+    return text_.size();
+}
 
-const std::string& Input::GetText() const { return text_; }
+const std::string& Input::GetText() const {
+    return text_;
+}
 
 bool Input::text_printable(const std::string& text) {
     for (std::string::const_iterator it = text.begin(); it != text.end(); ++it) {

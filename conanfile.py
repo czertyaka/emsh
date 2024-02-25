@@ -18,7 +18,8 @@ class EmshRecipe(ConanFile):
     exports_sources = "CMakeLists.txt", "src/*", "include/*"
 
     def requirements(self):
-        self.requires("gtest/1.14.0")
+        if self.options.with_unit_tests:
+            self.requires("gtest/1.14.0")
 
     def validate(self):
         if self.settings.os == "Windows":
