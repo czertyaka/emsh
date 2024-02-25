@@ -7,6 +7,7 @@ option(BUILD_TESTS OFF)
 add_library(emsh)
 target_sources(
     emsh PRIVATE
+        "${CMAKE_SOURCE_DIR}/src/console/character_sequence.cpp"
         "${CMAKE_SOURCE_DIR}/src/console/console.cpp"
         "${CMAKE_SOURCE_DIR}/src/console/escape_sequences.cpp"
         "${CMAKE_SOURCE_DIR}/src/console/input.cpp"
@@ -17,6 +18,7 @@ target_sources(
     emsh PUBLIC
         FILE_SET HEADERS BASE_DIRS "${CMAKE_SOURCE_DIR}/include"
         FILES
+            "include/emsh/console/character_sequence.h"
             "include/emsh/console/console.h"
             "include/emsh/console/escape_sequences.h"
             "include/emsh/console/input.h"
