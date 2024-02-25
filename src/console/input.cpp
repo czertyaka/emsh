@@ -86,7 +86,7 @@ bool Input::InsertChars(const std::string& chars) {
 
 bool Input::MoveCursor(const int shift) {
     const int pos = static_cast<int>(cursor_) + shift;
-    if (pos < 0 || pos > text_.size()) {
+    if (pos < 0 || static_cast<std::size_t>(pos) > text_.size()) {
         return false;
     }
     cursor_ = static_cast<std::size_t>(pos);

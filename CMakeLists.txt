@@ -4,6 +4,8 @@ project(emsh CXX)
 
 option(BUILD_TESTS OFF)
 
+add_compile_options(-Wall -Wextra -Werror)
+
 add_library(emsh)
 target_sources(
     emsh PRIVATE
